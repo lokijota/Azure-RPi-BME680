@@ -6,9 +6,7 @@ Sample of using the Bosch BME680 sensor connected to a Raspberry Pi Zero and upl
 
 ## Base setup instructions
 
-[Basic Device Setup](DeviceSetup.md)
-
-[Libraries setup](BME680Setup.md)
+Start by following these instructions to set up the Zero: [Basic Device Setup](DeviceSetup.md) . If you already have one running, just remember to enable I2C. After this, you'll need to install some aditional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [Libraries setup](BME680Setup.md) .
 
 To-add:
 
