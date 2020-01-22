@@ -18,4 +18,4 @@
 6. Install Vim: `sudo apt-get install vim -y` (because I prefer Vim to Vi/Nano/Emacs)
 7. Install Git: `sudo apt-get install git -y` (to get files from this and other repos)
 
-That's it. Continue with the [BME680 libraries](BME680Setup.md) I chose to use.
+That's it. Continue with the setup of [BME680 and Azure libraries](BME680Setup.md).
