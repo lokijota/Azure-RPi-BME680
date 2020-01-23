@@ -1,6 +1,6 @@
 # Install libraries to interact with the BME680 sensor and call into Azure
 
-## Bosh BSEC libraries setup
+## Install BOSH BSEC's wrapper project (and BSEC libraries, of course)
 
 1. Run `git clone https://github.com/alexh-name/bsec_bme680_linux.git`. This is a great/simple repo that includes C code to wrap Bosh's libraries. I'll be changing some of the code of this repo to upload readings to Azure.
 
