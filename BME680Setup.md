@@ -48,13 +48,4 @@ This is a Python client library to talk with Azure IoT Hub. There's also a C ver
 
 The SDK's documentation is here: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks (scroll down to the "Azure IoT Hub device SDK for Python" section).
 
-And that's it. You now have a working Zero, the sensor is working, and all the requirements are installed. The next step includes the remainig steps to [get the Zero to do readings in an interesting format and then upload them to Azure](DeviceUploadData.md)
-
-
-
-
-
-Also -- for another page, not here:
-- change the checkpointing interval
-- every 3 seconds
-- change 5ºC to 4ºC ??
+And that's it. You now have a working Zero, the sensor is working, and all the requirements are installed. The next step includes the remaining steps to [get the Zero to do readings in an interesting format and then upload them to Azure](DeviceUploadData.md).
