@@ -36,7 +36,14 @@ banana
 **Add here**: PIMIDORI / Adafruit
 
 Also:
+**Add here**: Download of BSEC and copy into RPI / PIMIDORI / Adafruit
+
+Also -- for another page, not here:
+- secondary I2C in my case
 - change the checkpointing interval
 - every 3 seconds
 - change 5ºC to 4ºC ??
 
+## Install Azure IoTHub Client SDK
+
+https://pypi.org/project/azure-iot-device/ and https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks
