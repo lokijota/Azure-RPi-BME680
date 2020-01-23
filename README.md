@@ -1,19 +1,18 @@
 # Using the BME680 sensor in a Raspberry Pi Zero connected to Microsoft Azure
 
-Sample of using the Bosch BME680 sensor connected to a Raspberry Pi Zero and uploading/processing data in Azure. I'm using Adafruit's breakout (https://www.adafruit.com/product/3660).
+This is a sample of using the Bosch BME680 sensor connected to a Raspberry Pi Zero and uploading/processing data in Azure. I'm using Adafruit's breakout (https://www.adafruit.com/product/3660) and using it to gather information including temperature, humidity and air quality.
 
-Bosch has a library (compiled C) to handle this sensor, including proprietary code to calculate the Interior Air Quality (IAQ) score adjusting for humidity/pressure, so I decided to not use either Adafruit's (https://github.com/adafruit/Adafruit_BME680) or Pimoroni's (https://github.com/pimoroni/bme680-python/) Python Libraries. What Bosch's code does exactly is not clear because the code is closed. You can also simply use either of the above libraries with the Adafruit breakout, both work.
+*Note: This project is Work in Progress as of 23/01/2020. I'm actively working on it and will be adding daily.*
 
+**To-add: Add photo of it with the connections**
 
-**Note**: This project is Work in Progress as of 22/01/2020. I'm actively working on it and will be adding daily.
+## Note on reading data from sensor
 
-## Base setup instructions
+Bosch has a library (compiled C) to handle their BME680 sensor, including proprietary code to calculate the Interior Air Quality (IAQ) score adjusting for humidity/pressure. This led me to decide to not use either Adafruit's (https://github.com/adafruit/Adafruit_BME680) or Pimoroni's (https://github.com/pimoroni/bme680-python/) Python Libraries. What Bosch's code does exactly is not clear because the code is closed. You can also simply use either of the above libraries with the Adafruit breakout, both work.
 
-Start by following these instructions to set up the Zero: [Basic Device Setup](DeviceSetup.md) . If you already have one running, just remember to enable I2C. After this, you'll need to install some aditional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [Libraries setup](BME680Setup.md) .
+## Base setup instructions (if you're starting from scratch)
 
-To-add:
-
-- Link to Adafruit and to the setup I did, maybe a photo of it with the connections
+Start by following these instructions to set up the Zero: [Basic Device Setup](DeviceSetup.md) . If you already have one running, just remember to enable I2C. After this, you'll need to install some aditional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [Libraries setup](BME680Setup.md) . When you finish these two, you'll have a C application installed that prints out the sensor's readings, and all the required dependencies for what follows.
 
 ## Get sensor readings and push them to Azure
 

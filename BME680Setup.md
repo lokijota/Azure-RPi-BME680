@@ -30,20 +30,27 @@ pi@rpi0:~/bsec_bme680_linux $ sudo i2cdetect -y 1
 
 6. Run the resulting executable with `./bsec_bme680`.
 
+7. By now you should be getting readings printed out every few seconds, such as:
 
-banana
+```
+2020-01-23 21:22:45,[IAQ (0)]: 25.00,[T degC]: 16.60,[H %rH]: 55.10,[P hPa]: 965.48,[G Ohms]: 4270,[S]: 0,[eCO2 ppm]: 500.000000000000000,[bVOCe ppm]: 0.4999999403953552246093750
+```
 
-**Add here**: PIMIDORI / Adafruit
+## Install Azure IoTHub Client SDK for Python
 
-Also:
-**Add here**: Download of BSEC and copy into RPI / PIMIDORI / Adafruit
+This is a Python client library to talk with Azure IoT Hub. There's also a C version available (https://github.com/Azure/azure-iot-sdk-c), but while I got it to work, I don't know enough about C anymore to know how to add the references to a new C application, so after spending some hours around CMake/Makefiles, I gave up and decided to go for Python SDK.
+
+1. Run `pip3 install azure-iot-device` (you should have installed pip3 in the [previous setup step](DeviceSetup.md))
+
+The SDK's documentation is here: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks (scroll down to the "Azure IoT Hub device SDK for Python" section).
+
+And that's it. You now have a working Zero, the sensor is working, and all the requirements are installed. The next step includes the remainig steps to [get the Zero to do readings in an interesting format and then upload them to Azure](DeviceUploadData.md)
+
+
+
+
 
 Also -- for another page, not here:
-- secondary I2C in my case
 - change the checkpointing interval
 - every 3 seconds
 - change 5ºC to 4ºC ??
-
-## Install Azure IoTHub Client SDK
-
-https://pypi.org/project/azure-iot-device/ and https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks
