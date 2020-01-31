@@ -37,14 +37,16 @@ Files uploaded: 378
 
 ```
 
-4. The filed in the `data` folder are renamed, with an `uploaded_` prefix added. E.g., `20200131-235215.csv` becomes `uploaded_20200131-235215.csv`. You'll need to clear up these files later.
-5. Now that this process has been tested, you need to run the previous command on a schedule with a cron job. Do do this, run `crontab -e`, pick an editor (nano may be the simplest one), and add the following at the end:
+4. The files in the `data` folder are renamed, with an `uploaded_` prefix added. E.g., `20200131-235215.csv` becomes `uploaded_20200131-235215.csv`. You'll need to clear up these files later.
+5. Now that this process has been tested, you need to run the previous command on a schedule with a cron job. To do this, run `crontab -e`, pick a text editor if Linux asks you to (nano may be the simplest one), and add the following at the end of the file:
 
 `* * * * * /usr/bin/python3 /home/pi/bsec_bme680_linux/scoop_up_data.py /home/pi/bsec_bme680_linux/data/`
 
-This will execute the command every minute, and upload the readings (typically 20 at a time, considering they are recorded every 3 seconds).
+When you save and exit, the specified command will be executed every minute, and upload the readings (typically 20 at a time, considering they are recorded every 3 seconds).
 
 ## TBD
+
+**TBD** clear up the uploaded files.
 
 **TBD** - how to set up your Azure IotHub -- create it and an IoT Device. Add a new instructions step. Maybe link to this: https://docs.microsoft.com/en-gb/learn/modules/remotely-monitor-devices-with-azure-iot-hub/2-create-iot-hub-device-id?pivots=csharp
 
