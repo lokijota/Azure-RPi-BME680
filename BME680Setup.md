@@ -7,7 +7,7 @@
     - This will create a folder `bsec_bme680_linux`, with the two most important files there being `bsec_bme680.c` which is the code that reads from the sensor via the BSEC library, and `make.sh` which compiles this code to create the executable.
     - `cd` into the `bsec_bme680_linux` folder for the following steps.
 
-2. Follow the setup instructions on (https://github.com/alexh-name/bsec_bme680_linux).
+2. Follow the setup instructions on here: https://github.com/alexh-name/bsec_bme680_linux. Some notes:
     - To copy Bosh's BSEC library's Zip to the Zero, if you're using an headless install, use something like `scp bsec_1-4-7-4_generic_release.zip pi@192.168.1.123:/home/pi/` (replacing the IP address of your Zero). `scp` is pre-installed on Windows 10 now, like `ssh`, and stands for "Securely Copy Files".
     - Remember to create a folder `src` inside `bsec_bme680_linux/` on the Zero
     - Also remember to `chmod +x make.sh` for it to be executable.

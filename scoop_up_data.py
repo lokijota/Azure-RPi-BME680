@@ -19,7 +19,7 @@ print("Reading files from " + os.path.abspath(res.dataFolder) + ":")
 
 #get a list of files from the folder, sorted alfabetically
 listOfFiles = sorted(os.listdir(res.dataFolder))
-pattern = "*.csv"
+pattern = "2*.csv" # must start with a '2' of year 2000, otherwise uploaded_ files are re-sent
 count = 0
 
 for entry in listOfFiles:

@@ -1,5 +1,6 @@
 /* Copyright (C) 2017 alexh.name */
 /* I2C code by twartzek 2017 */
+/* Minor edits by Lokijota to write out CSV to a file instead of printing readings to the screen */
 
 /*
  * Read the BME680 sensor with the BSEC library by running an endless loop in
@@ -28,13 +29,12 @@
 /* definitions */
 
 #define DESTZONE "TZ=Europe/Berlin"
-#define temp_offset (5.0f)
-#define sample_rate_mode (BSEC_SAMPLE_RATE_LP)
+#define temp_offset (4.0f)
+#define sample_rate_mode (BSEC_SAMPLE_RATE_LP) // Sample rate in case of Low Power Mode = 0.33333f
 
 int g_i2cFid; // I2C Linux device handle
 
-int i2#_address = BME600_I2C_ADDR_SECONDARY; // was BME680_I2C_ADDR_PRIMARY - 76,secundary is 77
-int i2c_address = BME680_I2C_ADDR_PRIMARY;
+int i2c_address = BME680_I2C_ADDR_SECONDARY; // was BME680_I2C_ADDR_PRIMARY - 76,secundary is 77
 char *filename_state = "bsec_iaq.state";
 char *filename_config = "bsec_iaq.config";
 
@@ -358,7 +358,7 @@ int main()
    * sensor settings.
    * State is saved every 10.000 samples, which means every 10.000 * 3 secs
    * = 500 minutes (depending on the config).
-   * NOTAJOTA: CHANGED TO 4 hours = 4800
+   * Lokijota: Changed TO 4 hours = 4800
    *
    */
   bsec_iot_loop(_sleep, get_timestamp_us, output_ready, state_save, 4800);

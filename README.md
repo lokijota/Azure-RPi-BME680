@@ -2,7 +2,7 @@
 
 This is a sample of using the Bosch BME680 sensor connected to a Raspberry Pi Zero and uploading/processing data in Azure. I'm using Adafruit's breakout (https://www.adafruit.com/product/3660) and using it to gather information including temperature, humidity and air quality.
 
-*Note: This project is Work in Progress as of 23/01/2020. I'm actively working on it and will be adding daily.*
+*Note: This project is Work in Progress as of 31/01/2020. I'm actively working on it and will be adding daily.*
 
 **To-add: Add photo of it with the connections**
 
@@ -29,12 +29,12 @@ Bosch has a library (compiled C) to handle their BME680 sensor, including propri
 
 ## Base setup instructions (if you're starting from scratch)
 
-Start by following these instructions to set up the Zero: [Basic Device Setup](DeviceSetup.md) . If you already have one running, just remember to enable I2C. After this, you'll need to install some aditional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [Libraries setup](BME680Setup.md) . When you finish these two, you'll have a C application installed that prints out the sensor's readings, and all the required dependencies for what follows.
+Start by following these instructions to set up the Zero: [Basic Device Setup](DeviceSetup.md) . If you already have one running, just remember to enable I2C. After this, you'll need to install some additional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [Libraries setup](BME680Setup.md) . When you finish these two, you'll have a C application compiled that prints out the sensor's readings to the screen, and all the required dependencies for what follows.
 
 ## Get formatted sensor readings and push them to Azure
 
-After the setup is done, you'll need to make make changes to make sure that:
-- the readings are captured in a format simple to process in Azure (I picked CSV, JSON would be another good option)
+After the setup is done, you'll need to make make changes so that:
+- the readings are captured in a format simple to process in Azure (I picked CSV, but JSON would be another good option)
 - have code to send the readings to Azure IoT Hub.
 
 To do this, follow [these steps](DeviceUploadData.md)
