@@ -48,12 +48,13 @@ To do this, follow steps [4 - Save and upload readings](DeviceUploadData.md).
 
 The desired processing steps over the incoming data stream are essentially filtering and aggregation. I store the "bronze" data (i.e. data as is received without any changes) in a table, and then do filtering/aggregation and store this in another table. I decided to aggregate/average every 30 seconds but can have more aggregations by simply adding its configuration.
 
-For this processing I'm using Azure Stream Analytics, and [the detail of what I'm doing is here](StreamProcessing.md).
+For this processing I'm using Azure Stream Analytics, and here's [5 - how to configure stream processing](StreamProcessing.md).
 
-## Display data
+## Displaying the data
 
-Here's a simple chart to look at Temperature and Humidity, in PowerBI Desktop:
-![](simple-pbi-chart.png)
+Here's a simple chart to look at Temperature and Humidity (silver data), in PowerBI Desktop:
+
+![PBI Dashboard](simple-pbi-chart.png)
 
 
 Also started working on an Android App, that's **TBD** atm.

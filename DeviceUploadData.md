@@ -12,7 +12,7 @@
 2. After this, compile the program again by calling `./make.sh` as before. 
 3. Create a `data` folder as a subfolder from where you'll be running the compiled `bsec_bme680` (or you'll get a friendly `Segmentation fault` when you run it).
 
-3. Now type `./bsec_bme680 &` to run the application in the background. If you list the contents of the `data` folder, you'll start seeing new csv files being generated, one  every 3 seconds.
+3. Now type `./bsec_bme680 &` to run the application in the background. If you list the contents of the `data` folder, you'll start seeing new csv files being generated, one  every 3 seconds. You'll have to run this manually every time you reboot/restart your Raspberry, haven't configured auto-start yet (**TBD**).
 
 ## Upload the CSV files to an Azure IoT Hub
 
@@ -26,7 +26,7 @@ The steps to follow are:
 2. Edit the file to change the value of the `iothub_connstring` variable. This is a string looking like `"HostName=NAME_OF_YOUR_IOTHUB.azure-devices.net;DeviceId=NAME_OF_YOUR_DEVICE_IN_THE_IOTHUB;SharedAccessKey=LOTS_OF_ALFANUM_CHARACTERS"` which you can obtained from the Azure portal.
 3. To do a test run, call `python3 scoop_up_data.py ./data/`. This will upload all your already captured CSV files to the Azure IoTHub, in cronological order, and print out something like as it uploads them:
 
-```
+```text
 pi@rpi0:~/bsec_bme680_linux $ python3 scoop_up_data.py ./data/
 Starting iothub client
 Reading files from /home/pi/bsec_bme680_linux/data:
@@ -45,10 +45,13 @@ Files uploaded: 378
 
 When you save and exit, the command above will be executed every minute, and upload the readings (typically 20 files at a time, considering they are recorded every 3 seconds).
 
-## TBD
+6. Clean up the uploaded files - as above, do `crontab -e` and add this to the end:
 
-**TBD** clear up the uploaded files.
+`*/2 * * * * rm /home/pi/bsec_bme680_linux/data/uploaded*.csv`
 
-**TBD** - how to set up your Azure IotHub -- create it and an IoT Device. Add a new instructions step. Maybe link to this: https://docs.microsoft.com/en-gb/learn/modules/remotely-monitor-devices-with-azure-iot-hub/2-create-iot-hub-device-id?pivots=csharp
+This will remove the uploaded files every two minutes. See here for more detail on the crontab string: https://crontab.guru/every-2-minutes .
 
-**TBD** avoid race condition as per here: https://www.cyberciti.biz/faq/how-to-run-cron-job-every-minute-on-linuxunix/
+
+## To be done
+
+How to avoid race conditions in cron jobs as per here: https://www.cyberciti.biz/faq/how-to-run-cron-job-every-minute-on-linuxunix/ . This is a detail.
