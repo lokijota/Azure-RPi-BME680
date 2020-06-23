@@ -13,6 +13,8 @@ The following operations can all be done from the Azure Portal. I'm showing the 
 
 4. Copy the IoT device's Connection String, with the command: `az iot hub device-identity show-connection-string -g RES_GROUP_NAME -n IOTHUB_NAME --device-id NAME_YOUR_DEVICE`. Copy the string starting with "Hostname=..." to a text editor for later use.
 
-5. You'll also need to create a consummer group, which I'm using in Stream Analytics. I named mine "bme680consummers) (you can find this in the "Built-in endpoints" option in the IoT Hub's page, or create with the CLI - https://docs.microsoft.com/en-us/cli/azure/iot/hub/consumer-group?view=azure-cli-latest ).
+5. You'll also need to create a consummer group, which I'm using in Stream Analytics. I named mine `bme680consumers`) (you can find this in the "Built-in endpoints" option in the IoT Hub's page, or create with the CLI - https://docs.microsoft.com/en-us/cli/azure/iot/hub/consumer-group?view=azure-cli-latest ).
+
+## Links
 
 These links can be informative if you want to know more: https://docs.microsoft.com/en-gb/learn/modules/remotely-monitor-devices-with-azure-iot-hub/2-create-iot-hub-device-id?pivots=csharp and https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin .

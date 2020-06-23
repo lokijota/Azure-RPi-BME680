@@ -12,11 +12,14 @@
 2. After this, compile the program again by calling `./make.sh` as before. 
 3. Create a `data` folder as a subfolder from where you'll be running the compiled `bsec_bme680` (or you'll get a friendly `Segmentation fault` when you run it).
 
-3. Now type `./bsec_bme680 &` to run the application in the background. If you list the contents of the `data` folder, you'll start seeing new csv files being generated, one  every 3 seconds. You'll have to run this manually every time you reboot/restart your Raspberry, haven't configured auto-start yet (**TBD**).
+3. Now type `./bsec_bme680 &` to run the application in the background. If you list the contents of the `data` folder, you'll start seeing new csv files being generated, one  every 3 seconds. You'll have to run this manually every time you reboot/restart your Raspberry, haven't configured auto-start yet (**TBD**). Here's an example content of one of these files:
+
+![Example reading](sensor-csv-reading.png)
 
 ## Upload the CSV files to an Azure IoT Hub
 
 I decided to separate the capture of the sensor readings from the uploading to Azure for a couple of reasons:
+
 - If there's any networking issue, you don't run the risk of losing readings. Additionally, while the time to push a reading to the cloud is non-deterministic, writing to a file is much more so, so you can keep a predictable reading every 3 seconds;
 - It's much simpler to install/use the IoT Hub Client SDK for Python than it is to figure out how the CMake-based compilation process of the IoT Hub Client SDK for C works. Hence, I'll be using Python for the upload stage.
 
@@ -51,6 +54,9 @@ When you save and exit, the command above will be executed every minute, and upl
 
 This will remove the uploaded files every two minutes. See here for more detail on the crontab string: https://crontab.guru/every-2-minutes .
 
+Your crontab will thus contain the following:
+
+![](crontab.png)
 
 ## To be done
 
