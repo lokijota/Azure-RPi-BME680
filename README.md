@@ -33,7 +33,7 @@ Bosch has a library (compiled C) to handle their BME680 sensor, including propri
 
 ## Base setup instructions (if you're starting from scratch)
 
-Start by following these instructions to set up the Zero: [1 - Basic Device setup](DeviceSetup.md). After this, you'll need to install some additional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [2 - Libraries setup](BME680Setup.md). When you finish these two, you'll have a C application compiled that prints out the sensor's readings to the screen, and all the required dependencies for what follows. Finally, you need to do the [3 - Azure IoT setup](AzureSetup.md).
+Start by following these instructions to set up the Zero: [1 - Basic Device setup](DeviceSetup.md). After this, you'll need to install some additional libraries in the device, related either to the BME680 sensor or to Azure. To do this, follow the steps here: [2 - Libraries setup](BME680Setup.md). When you finish these two, you'll have a C application compiled that prints out the sensor's readings to the screen, and all the required dependencies for what follows. Finally, you need to do the [3 - Azure IoT/SQL setup](AzureSetup.md).
 
 ## Get formatted sensor readings and push them to Azure
 
