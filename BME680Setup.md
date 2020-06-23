@@ -49,3 +49,24 @@ This is a Python client library to talk with Azure IoT Hub. There's also a C ver
 The SDK's documentation is here: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks (scroll down to the "Azure IoT Hub device SDK for Python" section).
 
 And that's it. You now have a working Zero, the sensor is working, and all the requirements are installed. The next step includes the remaining steps to [get the Zero to do readings in an interesting format and then upload them to Azure](DeviceUploadData.md).
+
+
+## Other links
+
+- Bosch forum - Explanation on static IAQ, breath VOC and CO2 equivalent - https://community.bosch-sensortec.com/t5/MEMS-sensors-forum/Explanation-on-static-IAQ-breath-VOC-and-CO2-equivalent/td-p/7413
+
+    - Static IAQ: The main difference between IAQ and static IAQ (sIAQ) relies in the scaling factor calculated based on the recent sensor history. The sIAQ output has been optimized for stationary applications (e.g. fixed indoor devices) whereas the IAQ output is ideal for mobile application (e.g. carry-on devices).
+    - bVOCeq estimate: The breath VOC equivalent output (bVOCeq) estimates the total VOC concentration [ppm] in the environment. It is calculated based on the sIAQ output and derived from lab tests.
+    - CO2eq estimate: Estimates a CO2-equivalent (CO2eq) concentration [ppm] in the environment. It is also calculated based on the sIAQ output and derived from VOC measurements and correlation from field studies.
+    - Since bVOCeq and CO2eq are based on the sIAQ output, they are expected to perform optimally in stationnary applications where the main source of VOCs in the environment comes from human activity (e.g. in a bedroom).
+
+
+- Bosch forum - BME680: IAQ accuracy definition - https://community.bosch-sensortec.com/t5/MEMS-sensors-forum/BME680-IAQ-accuracy-definition/td-p/5920
+
+    - IAQ Accuracy=0 could either mean: BSEC was just started, and the sensor is stabilizing (this lasts normally 5min in LP mode or 20min in ULP mode),
+there was a timing violation (i.e. BSEC was called too early or too late), which should be indicated by a warning/error flag by BSEC,
+    - IAQ Accuracy=1 means the background history of BSEC is uncertain. This typically means the gas sensor data was too stable for BSEC to clearly define its references,
+    - IAQ Accuracy=2 means BSEC found a new calibration data and is currently calibrating,
+    - IAQ Accuracy=3 means BSEC calibrated successfully.
+
+- BlueDot - Air Quality Measurement (IAQ) with the BME680 - https://www.bluedot.space/tutorials/air-quality-measurement-with-the-bme680/

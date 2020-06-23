@@ -17,6 +17,8 @@ The process is divided in these steps:
 
 3. **Azure**: data received in an Azure IoT Hub is read by Azure Stream Analytics
 4. **Azure**: an Azure Stream Analytics job pushes the data into an Azure SQL Database
+    - Raw data is stored as "Bronze"
+    - Further processing is done to aggregate and remove peaks, for Silver data
 5. **PowerPI** is used to do visualizations on the data read from the Azure SQL Database.
 
 This is the big picture overview as of writing. I've noticed from data I've already gathered that there are both "bad readings" (reported by the sensor) that have to be ignored, and anomalies that have to either removed from the data or smoothed out. I'll add steps above (probably in Stream Analytics) to handle these.
@@ -41,6 +43,8 @@ To do this, follow steps [4 - Save and upload readings](DeviceUploadData.md).
 
 ## Process the incoming data in Azure
 
-And finally, what I'm doing in Azure, of course :)
+Desired processing steps over the incoming data stream are essentially filtering and aggregation. I store the "bronze" data (i.e. data as is received without any changes) in a table, and then do filtering/aggregation and store this in another table. I'm aggregating/averaging every 30 seconds but can have more aggregations by simply adding its configuration. For this processing I'm using Azure Stream Analytics, and [the detail of what I'm doing is here](StreamProcessing.md).
 
-**TBD**
+## Links
+
+- BlueDot - Air Quality Measurement (IAQ) with the BME680 - https://www.bluedot.space/tutorials/air-quality-measurement-with-the-bme680/
